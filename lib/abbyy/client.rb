@@ -36,6 +36,10 @@ module Abbyy
     def get(url = task[:resultUrl])
       RestClient.get(url)
     end
+    
+    def application_info
+      RestClient.get("#{url}/getApplicationInfo")
+    end
 
     # http://ocrsdk.com/documentation/apireference/listTasks/
     # @return [Array] the list of tasks created
