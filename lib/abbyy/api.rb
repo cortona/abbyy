@@ -42,5 +42,9 @@ module Abbyy
     def process_fields(file_path, task_id = task[:id], options = {})
       RestClient.post("#{url}/processFields?taskId=#{task_id}", options.merge(:upload => { :file => File.new(file_path, 'r') }))
     end
+    
+    def application_info(file_path)
+       RestClient.get("#{url}/getApplicationInfo")
+    end
   end
 end
